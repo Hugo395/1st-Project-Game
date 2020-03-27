@@ -165,19 +165,19 @@ h4{
 
     /*Mini Board*/
 
-    #board {
+    #hud {
         display: flex;
         justify-content: space-evenly;
     }
 
-    .board-prefix {
+    .hud-prefix {
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-style: italic;
         font-weight: bolder;
     }
 
-    .board-main-text {
+    .hud-main-text {
         text-align: center;
     }
 

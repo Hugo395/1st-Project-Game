@@ -2,15 +2,16 @@
 
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const progressText = document.getElementById('progressText');
+const questionCounterText = document.getElementById('questionCounter');
 const scoring = document.getElementById('score')
+
 const correctBonus = 10;
 const maxQuestions = 5;
 const progressBarFull = document.getElementById('progressBarFull')
 
 
 let currentQuestion = {};
-let acceptingAnswers = true;
+let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = []
@@ -141,49 +142,41 @@ let questions = [
 ]
 
 
-
 //Game Script's
 startGame = ()=>{
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions];
-  console.log(availableQuestions)
   getNewQuestion();
 };
 
-getNewQuestion= () => {
-
-  if(availableQuestions.length === 0 || questionCounter>= maxQuestions){
+getNewQuestion = () => {
+  questionCounter++;
+  if(availableQuestions.length === 0 || questionCounter >= maxQuestions){
     localStorage.setItem('recentScore', score);
     // go to end page after finnishing
     return window.location.assign("/Game-Project/EndPage.html");
   }
-  questionCounter++;
 
-  progressText.innerText = ` ${questionCounter} / ${maxQuestions}`;
-  
-//Progress Bar JS
+  questionCounterText.innerHTML = `${questionCounter}/${maxQuestions}`;
 
-  progressBarFull.style.width = `${(questionCounter / maxQuestions) * 100}%`;
- 
 
-  
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-  
   currentQuestion = availableQuestions[questionIndex];
-  
   question.innerText = currentQuestion.question;
 
+ 
+//Progress Bar JS
+
+  // progressBarFull.width = `${(questionCounter / maxQuestions) * 100}%`;
+ 
   choices.forEach(choice => {
     const number  = choice.dataset["number"];
     choice.innerText = currentQuestion["choice" + number];
   }); 
 
   availableQuestions.splice(questionIndex, 1);
-  console.log(availableQuestions)
-
   acceptingAnswers = true;
-
 };
 
 choices.forEach(choice => {
@@ -196,29 +189,20 @@ choices.forEach(choice => {
 
 //Show in each option if right or wrong
 //Searched in youtube this way, and worked
-const classToApply = 
-selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     if(classToApply === 'correct'){
       incrementScore(correctBonus);
     }
-    // const classToApply =''
-    // if(selectedAnswer == currentQuestion.answer){
-    //  return classToApply = 'correct';
-    // }else{
-    //  return classToApply = 'incorrect'
-    // }
-  
-    
+      
   selectedChoice.parentElement.classList.add(classToApply);
-  
 
-    setTimeout( ()=>{
+      setTimeout( ()=>{
       selectedChoice.parentElement.classList.remove(classToApply);
       getNewQuestion();
     },1000);
-  })
-})
+  });
+});
 
 //Score function  - 1 Win - X Point
 
