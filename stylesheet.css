@@ -15,8 +15,14 @@
     color: crimson;
 }
 
+#question{
+    color: crimson;
+    text-shadow: 2px 2px black;
+}
+
 h1 {
     background-color: white;
+    border: 0.1rem solid rgb(39, 2, 2);
     border-radius: 100% red;
     font-size: 5.4rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -56,18 +62,23 @@ h4{
     max-width: 100%;
     margin: 0 auto;
     padding: 2rem;
-    /* background-image: url("/Game-Project/Images/tio\ patinhas.jpg"); */
-    background-position: center;
+    background-image: url("/Game-Project/Images/tio\ patinhas.jpg");
+    background-position: cover;
     background-size: 25%;
 }
 
 .container > * {
     width: 100%;
+
+    
 }
+
+
 
 .flex-column{
     display: flex;
     flex-direction : column;
+    height: 100%;
 }
 
 .flex-center{
@@ -95,7 +106,7 @@ h4{
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid cornsilk;
+    border: 0.5rem solid rgb(39, 2, 2);
     margin-bottom: 1rem;
     text-decoration: none;
     color: black;
@@ -124,14 +135,16 @@ h4{
     background-size: 25%;
 } */
 
+
+
 .choice-container{
     display: flex;
     margin-bottom: 0.7rem;
     width: 70%;
     font-size: 1.0rem;
-    border: 0.2rem solid rgba(78, 19, 19, 0.5);
+    border: 0.2rem solid rgba(243, 236, 236, 0.5);
     background: white;
-    
+        
 }
 
 .choice-container:hover{
@@ -146,6 +159,7 @@ h4{
     padding: 1.5rem 2.5rem;
     background-color: tomato;
     color: white;
+
     }
    
  .choice-text{
@@ -172,7 +186,7 @@ h4{
 
     .hud-prefix {
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         font-style: italic;
         font-weight: bolder;
     }
@@ -214,4 +228,55 @@ input {
     font-size: 1.8rem;
     border: none;
     box-shadow: rgb(77, 8, 8);
+}
+
+/* High Scores page */
+
+
+
+#highScoresList {
+    padding-left : 0;
+    margin-bottom: 8rem;
+    font-size: xx-large;
+    align-items: center;
+    font-style: italic;
+    font-weight: bolder;
+    }
+
+.high-score{
+    font-size: 2.8rem;
+
+
+}
+.high-score:hover{
+    transform: scale(1.025);
+}
+
+
+
+
+/* Images */
+
+.container2{
+    background-image: url("/Game-Project/Images/questionsimag.jpeg");
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width : 100vw;
+    height : 100vh;
+    
+}
+.container3{
+    background-image:url(/Game-Project/Images/HighScores\ Image.jpg);
+    width : 100vw;
+    height : 100vh;
+}
+
+.container4{
+    background-image:url(/Game-Project/Images/end\ page\ 2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    width : 100vw;
+    height : 100vh;
+
 }

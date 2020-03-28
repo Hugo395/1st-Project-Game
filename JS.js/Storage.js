@@ -8,7 +8,7 @@ const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 console.log(highScores);
 
-finalScore.innerText = "Score:" + recentScore;
+finalScore.innerText = "Your Score, Rookie:" + recentScore;
 
 username.addEventListener("keyup",() => {
     saveScoreButton.disabled = !username.value;
@@ -17,7 +17,7 @@ username.addEventListener("keyup",() => {
 theHighScore = e =>{
     e.preventDefault();
 
-    const score = {
+    const score = {        
         score: recentScore,
         name: username.value
     };

@@ -151,14 +151,14 @@ startGame = ()=>{
 };
 
 getNewQuestion = () => {
-  questionCounter++;
+  
   if(availableQuestions.length === 0 || questionCounter >= maxQuestions){
     localStorage.setItem('recentScore', score);
     // go to end page after finnishing
     return window.location.assign("/Game-Project/EndPage.html");
   }
-
-  questionCounterText.innerHTML = `${questionCounter}/${maxQuestions}`;
+  questionCounter++;
+  questionCounterText.innerText = `${questionCounter}/${maxQuestions}`;
 
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -166,9 +166,6 @@ getNewQuestion = () => {
   question.innerText = currentQuestion.question;
 
  
-//Progress Bar JS
-
-  // progressBarFull.width = `${(questionCounter / maxQuestions) * 100}%`;
  
   choices.forEach(choice => {
     const number  = choice.dataset["number"];
