@@ -30,5 +30,5 @@ theHighScore = e =>{
     });
     highScores.splice(5); // to save just 5 and to the highscore table
     localStorage.setItem('highScores', JSON.stringify(highScores)); // stringify to save in string format to json
-    window.location.assign("/Game-Project/MainPage.html")
+    window.location.assign("/Game-Project/Index.html")
 }
